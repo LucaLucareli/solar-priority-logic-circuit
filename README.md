@@ -99,7 +99,7 @@ A expressão simplificada final exige apenas **4 portas lógicas** ao invés da 
 
 A análise completa de todas as 16 combinações binárias possíveis do sistema está consolidada e documentada detalhadamente no arquivo Excel que acompanha este repositório.
 
-* **Arquivo de Dados:** [`tabela_verdade.xlsx`](https://www.google.com/search?q=./tabela_verdade.xlsx)
+* **Arquivo de Dados:** [`tabela_verdade.xlsx`](./tabela_verdade.xlsx)
 * **Resumo Operacional:** O LED indicador (Saída $S$) só acenderá nas linhas em que a condição simplificada $D \cdot (A + B \cdot \overline{C}) = 1$ for perfeitamente atendida.
 
 ---
