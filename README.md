@@ -115,3 +115,12 @@ O circuito digital completo foi montado e testado utilizando chaves/botões (DIP
 ### Imagem do Circuito Montado
 Abaixo está o mapeamento visual do protoboard e das conexões lógicas estruturadas durante a simulação:
 ![Circuito Lógico Digital no Tinkercad](./tinkercard.png)
+
+## Conclução
+O desenvolvimento deste **Sistema Inteligente de Prioridade Energética** representou um desafio prático valioso para a nossa equipe, consolidando a transição entre a teoria da lógica matemática e a implementação física de hardware. 
+
+Durante a execução do projeto, uma das principais **dificuldades encontradas** foi o mapeamento inicial da regra de negócios para uma expressão booleana estruturada. A transcrição de um problema do "mundo real" (composto por múltiplas condições e a restrição operacional crítica do horário de pico) para variáveis binárias exigiu uma modelagem cuidadosa para evitar ambiguidades e garantir que o sistema não acionasse a carga de forma indevida, esgotando a bateria da residência.
+
+Apesar deste desafio inicial, o **funcionamento do sistema** superou as expectativas. A aplicação prática da Álgebra Booleana para simplificar a expressão de $S = (\overline{C} \cdot (A + B) \cdot D) + (C \cdot A \cdot D)$ para $S = D \cdot (A + B \cdot \overline{C})$ permitiu a implementação de um circuito no Tinkercad extremamente enxuto, exigindo apenas 4 portas lógicas. Isso resultou em um hardware mais econômico e menos suscetível a falhas. O desenvolvimento do script em Python para automação da Tabela Verdade serviu como uma contraprova definitiva de que o circuito físico e o modelo lógico estavam perfeitamente alinhados.
+
+Por fim, este trabalho atesta a imensa **importância da Arquitetura de Computadores** na nossa formação. Compreender o fluxo de dados no nível mais baixo, desde a manipulação de registradores até o acionamento de transistores em circuitos integrados, nos dá a base sólida necessária como futuros Cientistas da Computação. É esse conhecimento estrutural que nos capacitará a escrever softwares de alto nível mais eficientes e a projetar sistemas embarcados que sejam rápidos e confiáveis, características inegociáveis em soluções industriais como as da GoodWe.
