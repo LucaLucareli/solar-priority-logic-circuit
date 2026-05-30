@@ -77,12 +77,9 @@ Unindo os termos através de uma porta **OR** ($+$), obtemos as expressões abai
 
 $$S = (\overline{C} \cdot (A + B) \cdot D) + (C \cdot A \cdot D)$$
 
-
 * **Expressão simplificada (Otimizada):**
 
 $$S = D \cdot (A + B \cdot \overline{C})$$
-
-
 
 ### Impacto no Hardware e Otimização
 
@@ -95,12 +92,20 @@ A expressão simplificada final exige apenas **4 portas lógicas** ao invés da 
 
 ---
 
-## Tabela Verdade
+## Tabela Verdade e Análise do Sistema
 
 A análise completa de todas as 16 combinações binárias possíveis do sistema está consolidada e documentada detalhadamente no arquivo Excel que acompanha este repositório.
 
 * **Arquivo de Dados:** [`tabela_verdade.xlsx`](./tabela_verdade.xlsx)
 * **Resumo Operacional:** O LED indicador (Saída $S$) só acenderá nas linhas em que a condição simplificada $D \cdot (A + B \cdot \overline{C}) = 1$ for perfeitamente atendida.
+
+### Análise de Cenários Práticos
+
+Para ilustrar a tomada de decisão do sistema, destacamos três comportamentos fundamentais refletidos na tabela verdade:
+
+1. **Disponibilidade Solar (Independente do Horário):** Sempre que houver energia solar ($A=1$) e o equipamento for solicitado ($D=1$), a carga será ativada ($S=1$), quer seja horário de pico ou não. O sistema prioriza a fonte limpa e abundante.
+2. **Uso da Bateria Fora do Pico:** Se não houver sol ($A=0$), mas a bateria estiver adequadamente carregada ($B=1$) fora do horário de pico ($C=0$), a solicitação ($D=1$) será atendida normalmente ($S=1$).
+3. **Bloqueio Crítico (Bateria no Horário de Pico):** Este é o principal mecanismo de proteção estabelecido nas regras de negócio. Se a residência depender exclusivamente da bateria ($A=0, B=1$) e entrar no horário de pico ($C=1$), qualquer solicitação ($D=1$) será negada e o LED permanecerá apagado ($S=0$), preservando a carga armazenada para evitar apagões totais.
 
 ---
 
@@ -113,11 +118,14 @@ O circuito digital completo foi montado e testado utilizando chaves/botões (DIP
 * **[Acessar Simulação no Tinkercad](https://www.tinkercad.com/things/eUJlglfcRt0-cp2-portas-logicas-e-sistemas-digitais?sharecode=d4906sj5frh_jOP1oXR7U2ujvfwL08_vq4mcWJ5V750)**
 
 ### Imagem do Circuito Montado
-Abaixo está o mapeamento visual do protoboard e das conexões lógicas estruturadas durante a simulação:
-![Circuito Lógico Digital no Tinkercad](./tinkercard.png)
 
-## Conclução
-O desenvolvimento deste **Sistema Inteligente de Prioridade Energética** representou um desafio prático valioso para a nossa equipe, consolidando a transição entre a teoria da lógica matemática e a implementação física de hardware. 
+Abaixo está o mapeamento visual do protoboard e das conexões lógicas estruturadas durante a simulação:
+
+---
+
+## Conclusão
+
+O desenvolvimento deste **Sistema Inteligente de Prioridade Energética** representou um desafio prático valioso para a nossa equipe, consolidando a transição entre a teoria da lógica matemática e a implementação física de hardware.
 
 Durante a execução do projeto, uma das principais **dificuldades encontradas** foi o mapeamento inicial da regra de negócios para uma expressão booleana estruturada. A transcrição de um problema do "mundo real" (composto por múltiplas condições e a restrição operacional crítica do horário de pico) para variáveis binárias exigiu uma modelagem cuidadosa para evitar ambiguidades e garantir que o sistema não acionasse a carga de forma indevida, esgotando a bateria da residência.
 
